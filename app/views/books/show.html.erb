@@ -1,6 +1,6 @@
 
 <%= render 'users/list', book: @book_new, user: @user %>
-<div class = "col-md-8">
+<div class = "col-md-8 offset-md-1">
 <h1>Book detail</h1>
 <table class="table" >
 <tbody>
@@ -14,11 +14,12 @@
 
         <td><%= @book.body %></td>
         <% if @book.user == current_user %>
-        <td><%= link_to 'Edit', edit_book_path(@book) %></td>
-        <td><%= link_to 'Destroy',book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %> </td>
+        <td><%= link_to edit_book_path(@book), class: "btn btn-sm btn-success edit_book_3752" do %>Edit<% end %></td>
+        <td><%= link_to book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger" do %>Destroy<% end %></td>
         <% end %>
     </tr>
    
 </tbody>
 </table>
 </div>
+
